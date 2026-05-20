@@ -95,20 +95,19 @@
         /* Contenedor de Imagen */
         .image-container {
             width: 100%;
-            height: 240px;
+            height: 378px;          /* Altura fija idéntica para todas las tarjetas */
             background-color: #262626;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border-bottom: 1px solid var(--border-color);
         }
 
+        /* Ajuste Uniforme para cualquier tamaño de imagen */
         .image-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover;       /* Llena el espacio sin estirarse ni deformarse */
+            object-position: center; /* Centra el encuadre del recorte */
             transition: transform 0.5s ease;
         }
 
@@ -116,7 +115,7 @@
             transform: scale(1.05);
         }
 
-        /* Indicador de archivo local o placeholder */
+        /* Indicador de archivo local o placeholder (por si necesitas usarlo de guía) */
         .img-placeholder {
             color: var(--text-muted);
             font-size: 0.9rem;
@@ -225,13 +224,9 @@
 
         <main class="portfolio-grid">
             
-            <!-- PROYECTO 1 -->
             <div class="project-card">
                 <div class="image-container">
-                    <!-- Cuando tengas tu imagen, reemplaza el src con la ruta local. Ej: src="img/engranaje.jpg" -->
-                    <img src="img/Brazo_robotico_proy.png" alt="Pieza Funcional 1">
-                    <!-- Descomenta la línea de abajo si prefieres ver un recuadro guía antes de poner fotos reales: -->
-                    <!-- <div class="img-placeholder">Proyecto 1: Imagen aquí</div> -->
+                    <img src="img/Brazo_robotico_proy.png" alt="Brazo Robótico de Precisión">
                 </div>
                 <div class="project-details">
                     <div class="project-title">
@@ -247,10 +242,9 @@
                 </div>
             </div>
 
-            <!-- PROYECTO 2 -->
             <div class="project-card">
                 <div class="image-container">
-                    <img src="img/Walls_WH40K.png" alt="Pieza Estética 1">
+                    <img src="img/Walls_WH40K.png" alt="Obstaculos de Batalla Warhammer 40K">
                 </div>
                 <div class="project-details">
                     <div class="project-title">
@@ -266,10 +260,9 @@
                 </div>
             </div>
 
-            <!-- PROYECTO 3 -->
             <div class="project-card">
                 <div class="image-container">
-                    <img src="img/Pieza_moto.png" alt="Pieza Moto">
+                    <img src="img/Pieza_moto.png" alt="Restauracion de Pieza para Moto">
                 </div>
                 <div class="project-details">
                     <div class="project-title">
@@ -285,12 +278,9 @@
                 </div>
             </div>
 
-            <!-- PROYECTO 4 -->
             <div class="project-card">
                 <div class="image-container">
-                    <div class="img-placeholder">
-                        <img src="img/Distribuidor.png" alt="Distribuidor">
-                    </div>
+                    <img src="img/Distribuidor.png" alt="Distribuidor de lubricante">
                 </div>
                 <div class="project-details">
                     <div class="project-title">
@@ -305,12 +295,9 @@
                 </div>
             </div>
 
-            <!-- PROYECTO 5 -->
             <div class="project-card">
                 <div class="image-container">
-                    <div class="img-placeholder">
-                        <img src="img/Junta.png" alt="Junta">
-                    </div>
+                    <img src="img/Junta.png" alt="Junta para carburador">
                 </div>
                 <div class="project-details">
                     <div class="project-title">
@@ -326,12 +313,9 @@
                 </div>
             </div>
 
-            <!-- PROYECTO 6 -->
             <div class="project-card">
                 <div class="image-container">
-                    <div class="img-placeholder">
-                        <img src="img/Hollow.png" alt="Pieza Ornamental">
-                    </div>
+                    <img src="img/Hollow.png" alt="Figuras Hollow Knight">
                 </div>
                 <div class="project-details">
                     <div class="project-title">
@@ -347,12 +331,9 @@
                 </div>
             </div>
 
-            <!-- PROYECTO 7 -->
             <div class="project-card">
                 <div class="image-container">
-                    <div class="img-placeholder">
-                        <img src="img/Box.png" alt="Box">
-                    </div>
+                    <img src="img/Box.png" alt="Cajón de protección">
                 </div>
                 <div class="project-details">
                     <div class="project-title">
@@ -367,12 +348,9 @@
                 </div>
             </div>
 
-            <!-- PROYECTO 8 -->
             <div class="project-card">
                 <div class="image-container">
-                    <div class="img-placeholder">
-                        <img src="img/Conectors.png" alt="Maqueta">
-                    </div>
+                    <img src="img/Conectors.png" alt="Conectores Arduino">
                 </div>
                 <div class="project-details">
                     <div class="project-title">
@@ -388,12 +366,9 @@
                 </div>
             </div>
 
-            <!-- PROYECTO 9 -->
             <div class="project-card">
                 <div class="image-container">
-                    <div class="img-placeholder">
-                        <img src="img/Agnes.png" alt="Agnes">
-                    </div>
+                    <img src="img/Agnes.png" alt="Figura Agnes Tachyon">
                 </div>
                 <div class="project-details">
                     <div class="project-title">
@@ -409,12 +384,9 @@
                 </div>
             </div>
 
-            <!-- PROYECTO 10 -->
             <div class="project-card">
                 <div class="image-container">
-                    <div class="img-placeholder">
-                        <img src="img/Llaveros.png" alt="Llaveros">
-                    </div>
+                    <img src="img/Llaveros.png" alt="Llaveros personalizados">
                 </div>
                 <div class="project-details">
                     <div class="project-title">
