@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Diseños - Portafolio de Manufactura Aditiva</title>
+    <style>
+        /* Paleta Motorsport: Negro, Gris Oscuro, Blanco y Acentos Rojo Carmesí */
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --text-main: #f5f5f5;
+            --text-muted: #a6a6a6;
+            --accent-color: #e50914; /* Rojo deportivo vibrante */
+            --accent-hover: #b80710;
+            --border-color: #2a2a2a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            display: inline-block;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        /* Grid de Proyectos */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Tarjeta de Proyecto */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.15);
+        }
+
+        /* Contenedor de Imagen */
+        .image-container {
+            width: 100%;
+            height: 240px;
+            background-color: #262626;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .image-container img {
+            transform: scale(1.05);
+        }
+
+        /* Indicador de archivo local o placeholder */
+        .img-placeholder {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px dashed #3a3a3a;
+            margin: 15px;
+            width: calc(100% - 30px);
+            height: calc(100% - 30px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Pie de la tarjeta / Descripción */
+        .project-details {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            background-color: rgba(229, 9, 20, 0.1);
+            color: var(--accent-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(229, 9, 20, 0.2);
+            text-transform: uppercase;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            height: 4.5rem; /* Asegura alineación uniforme de textos cortos */
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        /* Especificaciones Técnicas Breves */
+        .tech-meta {
+            display: flex;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid #262626;
+            padding-top: 12px;
+        }
+
+        .tech-meta span {
+            background-color: #222;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsivo */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Mis Diseños</h1>
+            <p class="subtitle">Portafolio Técnico de Manufactura Aditiva y Modelado 3D</p>
+        </header>
+
+        <main class="portfolio-grid">
+            
+            <!-- PROYECTO 1 -->
+            <div class="project-card">
+                <div class="image-container">
+                    <!-- Cuando tengas tu imagen, reemplaza el src con la ruta local. Ej: src="img/engranaje.jpg" -->
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600" alt="Pieza Funcional 1">
+                    <!-- Descomenta la línea de abajo si prefieres ver un recuadro guía antes de poner fotos reales: -->
+                    <!-- <div class="img-placeholder">Proyecto 1: Imagen aquí</div> -->
+                </div>
+                <div class="project-details">
+                    <div class="project-title">
+                        Engranaje Helicoidal Técnico
+                        <span class="project-tag">Funcional</span>
+                    </div>
+                    <p class="project-description">Componente mecánico de alta precisión diseñado para sustituir un repuesto industrial obsoleto. Optimizado mecánicamente para soportar torque continuo.</p>
+                    <div class="tech-meta">
+                        <span>ABS</span>
+                        <span>Orca Slicer</span>
+                        <span>Fusion 360</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 2 -->
+            <div class="project-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1615840287214-7fe58a8e668f?auto=format&fit=crop&q=80&w=600" alt="Pieza Estética 1">
+                </div>
+                <div class="project-details">
+                    <div class="project-title">
+                        Escultura Orgánica Detallada
+                        <span class="project-tag">Estético</span>
+                    </div>
+                    <p class="project-description">Modelado artístico optimizado para impresión FDM sin soportes tradicionales utilizando ángulos de inclinación controlados a 45 grados.</p>
+                    <div class="tech-meta">
+                        <span>PLA</span>
+                        <span>CURA</span>
+                        <span>Blender</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 3 -->
+            <div class="project-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&q=80&w=600" alt="Pieza Flexible">
+                </div>
+                <div class="project-details">
+                    <div class="project-title">
+                        Funda Protectora Antivibración
+                        <span class="project-tag">Funcional</span>
+                    </div>
+                    <p class="project-description">Carcasa flexible diseñada a medida para amortiguación de componentes electrónicos expuestos a vibraciones de motor.</p>
+                    <div class="tech-meta">
+                        <span>TPU</span>
+                        <span>Orca Slicer</span>
+                        <span>Fusion 360</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 4 -->
+            <div class="project-card">
+                <div class="image-container">
+                    <div class="img-placeholder">Proyecto 4: Tu foto aquí</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-title">
+                        Carcasa para Placa Base
+                        <span class="project-tag">Mecánico</span>
+                    </div>
+                    <p class="project-description">Diseño con ventilación activa y anclajes empotrados para placa de control de impresora 3D. Tolerancias ajustadas a 0.2mm.</p>
+                    <div class="tech-meta">
+                        <span>PETG</span>
+                        <span>CURA</span>
+                        <span>Fusion 360</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 5 -->
+            <div class="project-card">
+                <div class="image-container">
+                    <div class="img-placeholder">Proyecto 5: Tu foto aquí</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-title">
+                        Soporte de Filamento con Rodamientos
+                        <span class="project-tag">Upgrade</span>
+                    </div>
+                    <p class="project-description">Mejora de hardware para reducir la tensión de arrastre del extrusor. Movimiento fluido con rodamientos sellados 608ZZ.</p>
+                    <div class="tech-meta">
+                        <span>PLA+</span>
+                        <span>Orca Slicer</span>
+                        <span>Fusion 360</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 6 -->
+            <div class="project-card">
+                <div class="image-container">
+                    <div class="img-placeholder">Proyecto 6: Tu foto aquí</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-title">
+                        Pieza Ornamental Compleja
+                        <span class="project-tag">Estético</span>
+                    </div>
+                    <p class="project-description">Modelo geométrico con retracciones complejas. Configuración fina de temperatura para evitar hilos (stringing).</p>
+                    <div class="tech-meta">
+                        <span>PLA</span>
+                        <span>CURA</span>
+                        <span>Blender</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 7 -->
+            <div class="project-card">
+                <div class="image-container">
+                    <div class="img-placeholder">Proyecto 7: Tu foto aquí</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-title">
+                        Conducto de Ventilación Fan Shroud
+                        <span class="project-tag">Mejora</span>
+                    </div>
+                    <p class="project-description">Diseño aerodinámico optimizado mediante simulación de flujo para mejorar el enfriamiento de capa en puentes y voladizos extremos.</p>
+                    <div class="tech-meta">
+                        <span>ABS</span>
+                        <span>Klipper Control</span>
+                        <span>Fusion 360</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 8 -->
+            <div class="project-card">
+                <div class="image-container">
+                    <div class="img-placeholder">Proyecto 8: Tu foto aquí</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-title">
+                        Maqueta Arquitectónica Escala
+                        <span class="project-tag">Diseño</span>
+                    </div>
+                    <p class="project-description">Segmentación avanzada de planos CAD complejos para impresión por módulos acoplables con uniones mecánicas ocultas.</p>
+                    <div class="tech-meta">
+                        <span>PLA</span>
+                        <span>CURA</span>
+                        <span>Blender</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 9 -->
+            <div class="project-card">
+                <div class="image-container">
+                    <div class="img-placeholder">Proyecto 9: Tu foto aquí</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-title">
+                        Acople de Motor Paso a Paso
+                        <span class="project-tag">Funcional</span>
+                    </div>
+                    <p class="project-description">Repuesto de alta densidad (100% infill) para eje Z, diseñado para eliminar holguras cinemáticas y artefactos en las impresiones.</p>
+                    <div class="tech-meta">
+                        <span>PETG</span>
+                        <span>Orca Slicer</span>
+                        <span>Fusion 360</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 10 -->
+            <div class="project-card">
+                <div class="image-container">
+                    <div class="img-placeholder">Proyecto 10: Tu foto aquí</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-title">
+                        Prototipo de Junta Articulada
+                        <span class="project-tag">Mecánico</span>
+                    </div>
+                    <p class="project-description">Impresión en una sola pieza (Print-in-place) con tolerancias internas de 0.15mm libres para movimiento inmediato post-impresión.</p>
+                    <div class="tech-meta">
+                        <span>PLA</span>
+                        <span>CURA</span>
+                        <span>Fusion 360</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Bismark Mariaca Urbina. Desarrollado con código limpio para <a href="https://github.com/bismarkprg" target="_blank">GitHub Pages</a>.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
